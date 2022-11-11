@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700|Roboto+Slab:400,500,600,700,800,900|Noto+Sans+Symbols+2|Roboto+Condensed:400|Roboto+Mono:400");
+
+* {
+    --player-back: rgb(51.02, 58.18, 69.45);
+    --scrollgrad-width: 20px;
+    --player-height: 48px;
+}
+
+body {
+    font-size: 16pt;
+    font-family: Roboto;
+    padding-top: 16px;
+}
+
+scrollbox {
+    overflow: hidden;
+    padding-right: var(--scrollgrad-width);
+    padding-left: var(--scrollgrad-width);
+    height: var(--player-height);
+    line-height: var(--player-height);
+
+    animation: 60s infinite ease-in-out wiggletext;
+
+    position: absolute;
+}
+
+img {
+    max-height: 100%;
+    width: auto;
+    padding: 10px 0 10px var(--scrollgrad-width);
+    box-sizing: border-box;
+}
+
+@keyframes wiggletext {
+    0%  { transform: translateX(0%); }
+    66.66%  { transform: translateX(0%); }
+    77.77% { transform: translateX( min(0px, calc(100vw - 100% - 4 * var(--scrollgrad-width))) ); }
+    88.88% { transform: translateX( min(0px, calc(100vw - 100% - 4 * var(--scrollgrad-width))) ); }
+    100%  { transform: translateX(0%); }
+}
+
+musicbox {
+    white-space: nowrap;
+    display: block;
+    background: var(--player-back);
+    padding: 4px 0;
+    margin: 0;
+    height: var(--player-height);
+    border-top: 3px solid #ff5096;
+    border-bottom: 3px solid #006eff;
+}
+
+labelboxbox {
+    white-space: nowrap;
+    display: grid;
+    grid-template-columns: auto;
+
+    margin: 0;
+    padding: 0;
+    height: var(--player-height);
+    width: calc(100vw - var(--player-height) - 1 * var(--scrollgrad-width) - 0px);
+    float: right;
+    box-sizing: content-box;
+}
+
+musicbox::before {
+    content: "　";
+    width: 120px;
+    height: 10px;
+    left: 100px;
+    bottom: -52px;
+    position: relative;
+    margin: 0 -100px;
+    float: left;
+    background: linear-gradient(-45deg, transparent 20px, var(--player-back) 0);
+}
+
+labelbox, labelboy {
+    white-space: nowrap;
+    overflow: hidden;
+    height: var(--player-height);
+
+    position: relative;
+}
+
+labelboy {
+    display: grid;
+    grid-template-columns: var(--scrollgrad-width) auto var(--scrollgrad-width);
+    bottom: 100%;
+}
+
+leftflap  { background: linear-gradient(to left, transparent, var(--player-back)); }
+rightflap { background: linear-gradient(to right, transparent, var(--player-back)); }
+
+h4 {
+    display: inline-block;
+    color: #FFF;
+    line-height: 0;
+    font-weight: 800;
+    height: var(--player-height);
+    margin: 0;
+}
+
+h5 {
+    display: inline-block;
+    color: #EEEEEE;
+    line-height: 0;
+    font-weight: 500;
+    height: var(--player-height);
+    margin: 0
+}
+
+hsep {
+    color: #E6E6E6;
+}
