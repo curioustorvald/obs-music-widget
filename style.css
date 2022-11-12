@@ -10,6 +10,11 @@ body {
     font-size: 16pt;
     font-family: Roboto;
     padding-top: 16px;
+    color: #EEE;
+/*     background-color: #0F0; */
+    background-color: rgba(0, 0, 0, 0);
+    margin: 0px auto;
+    overflow: hidden;
 }
 
 scrollbox {
@@ -67,12 +72,12 @@ musicbox::before {
     content: "　";
     width: 120px;
     height: 10px;
-    right: 100px;
-    top: -13px;
+    left: 100px;
+    bottom: -52px;
     position: relative;
     margin: 0 -100px;
-    float: right;
-    background: linear-gradient(135deg, transparent 20px, var(--player-back) 0);
+    float: left;
+    background: linear-gradient(-45deg, transparent 20px, var(--player-back) 0);
 }
 
 labelbox, labelboy {
@@ -92,7 +97,7 @@ labelboy {
 leftflap  { background: linear-gradient(to left, transparent, var(--player-back)); }
 rightflap { background: linear-gradient(to right, transparent, var(--player-back)); }
 
-h4 {
+h4.musicbox {
     display: inline-block;
     color: #FFF;
     line-height: 0;
@@ -101,9 +106,9 @@ h4 {
     margin: 0;
 }
 
-h5 {
+h5.musicbox {
     display: inline-block;
-    color: #EEEEEE;
+    color: #EEE;
     line-height: 0;
     font-weight: 500;
     height: var(--player-height);
@@ -112,4 +117,63 @@ h5 {
 
 hsep {
     color: #E6E6E6;
+}
+
+docbox::before {
+    content: "　";
+    width: 120px;
+    height: 10px;
+    right: 100px;
+    top: -10px;
+    position: relative;
+    margin: 0 -100px;
+    float: right;
+    background: linear-gradient(135deg, transparent 20px, var(--player-back) 0);
+}
+
+cosmeticbox {
+    display: block;
+    padding: 0.2em 1.2em 1em 1.2em;
+    overflow: scroll;
+    height: 75vh;
+}
+
+docbox {
+    display: block;
+    margin: 160px 0 0 0;
+    padding: 0;
+    background: var(--player-back);
+    border-top: 3px solid #ff5096;
+    border-bottom: 3px solid #006eff;
+}
+
+docbox h4 {
+    color: #FFF;
+}
+
+div#plist {
+    display: block;
+}
+
+td.pmark {
+    width: 2em;
+    text-align: right;
+}
+
+td.pmark, td.title, td.artist {
+    padding: 0.1em 0.4em;
+}
+
+td.title {
+    color: #FFF;
+    font-weight: 700;
+}
+
+songlist {
+    display: grid;
+    grid-template-columns: 2em auto auto;
+}
+
+songlist pmark, songlist titel, songlist artist {
+    display: inline-block;
 }

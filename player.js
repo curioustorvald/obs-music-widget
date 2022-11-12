@@ -20,6 +20,14 @@ let AUDIO = undefined;
 let songlist = [];// list of object: {f:"file.mp3",t:"Title",a:"Artist"}
 let songindex = 0;
 
+function fmod(num, dem) {
+    let n = num % dem
+    while (n < 0) {
+        n += dem
+    }
+    return n
+}
+
 function nextsong() {
     let songinfo = songlist[songindex]
 
@@ -30,7 +38,12 @@ function nextsong() {
         AUDIO.play()
     }
 
+    let prevsongindex = fmod(songindex - 1, songlist.length)
+
+    document.getElementById("pmark"+prevsongindex).innerText = ''+(prevsongindex + 1)
+    document.getElementById("pmark"+songindex).innerText = '▶'
     updateText(songinfo.t, songinfo.a)
+
     songindex = (songindex + 1) % songlist.length
 }
 
@@ -38,8 +51,23 @@ function init() {
     loadJSON(qd.p[0], (e) => {
         songlist = JSON.parse(e)
 
+        console.log("Playlist:")
+        songlist.forEach((v,i)=>{
+            console.log(i+1, `${v.t} — ${v.a} (file:${v.f})`)
+        })
 
-        console.log(songlist)
+        if (qd.c != undefined && qd.c[0] >= 1) {
+            songindex = qd.c[0] - 1
+            console.log("Playback will begin from the entry #"+(songindex+1))
+        }
+
+        // fill up the visible part of the playlist
+        let out = '<table>'
+        songlist.forEach((v,i)=>{
+            out += `<tr><td class="pmark" id="pmark${i}">${i+1}</td><td class="title">${v.t}</td><td class="artist">${v.a}</td></tr>`
+        })
+        out += '</table>'
+        document.getElementById("plist").innerHTML = out
 
         nextsong()
         AUDIO.play()

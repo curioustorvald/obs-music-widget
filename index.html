@@ -13,9 +13,9 @@
         <labelboxbox>
         <labelbox>
             <scrollbox>
-                <h4 id="songtitle">4′33″</h4>
+                <h4 class="musicbox" id="songtitle">4′33″</h4>
                 <hsep>&mdash;</hsep>
-                <h5 id="songartist">John Cage</h5>
+                <h5 class="musicbox" id="songartist">John Cage</h5>
             </scrollbox>
         </labelbox>
         <labelboy>
@@ -25,6 +25,20 @@
         </labelboy>
         </labelboxbox>
     </musicbox>
+    <docbox>
+    <cosmeticbox>
+        <h4>Synopsis</h4>
+        <ul>
+        <li>localhost/twitchmusic/?p=your_playlist.json</li>
+        <li>localhost/twitchmusic/?p=your_playlist.json&amp;c=123</li>
+        </ul>
+        <p><strong>p</strong> specifies the playlist to play from.</p>
+        <p><strong>c</strong> is an optional argument to specify which song on the playlist, indexed from 1, should be played.</p>
+        <hr />
+        <h4>Playlist</h4>
+        <div id="plist"></div>
+    </cosmeticbox>
+    </docbox>
     <script>
 let qd = {}
 if (location.search) location.search.substr(1).split`&`.forEach(item => {let [k,v] = item.split`=`; v = v && decodeURIComponent(v); (qd[k] = qd[k] || []).push(v)})
