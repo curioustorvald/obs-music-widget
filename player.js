@@ -104,6 +104,11 @@ function init() {
             console.log(i+1, `${v.t} — ${v.a} (file:${v.f})`)
         })
 
+
+        if (RANDOMISED) {
+            generateNextRandomSong()
+            document.getElementById("plistheader").innerText = 'Playlist (randomised)'
+        }
         if (qd.c != undefined && qd.c[0] >= 1) {
             songindex = qd.c[0] - 1
             console.log("Playback will begin from the entry #"+(songindex+1))
@@ -117,11 +122,6 @@ function init() {
         out += '</table>'
         document.getElementById("plist").innerHTML = out
 
-
-        if (RANDOMISED) {
-            generateNextRandomSong()
-            document.getElementById("plistheader").innerText = 'Playlist (randomised)'
-        }
 
         nextsong()
         AUDIO.play()
