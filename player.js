@@ -112,6 +112,10 @@ function init() {
         if (qd.c != undefined && qd.c[0] >= 1) {
             songindex = qd.c[0] - 1
             console.log("Playback will begin from the entry #"+(songindex+1))
+
+            if (RANDOMISED) {
+                rndbuf[0] = songindex
+            }
         }
 
         // fill up the visible part of the playlist
