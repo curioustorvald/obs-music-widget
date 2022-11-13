@@ -39,8 +39,8 @@ img {
 @keyframes wiggletext {
     0%  { transform: translateX(0%); }
     66.66%  { transform: translateX(0%); }
-    77.77% { transform: translateX( min(0px, calc(100vw - 100% - 4 * var(--scrollgrad-width))) ); }
-    88.88% { transform: translateX( min(0px, calc(100vw - 100% - 4 * var(--scrollgrad-width))) ); }
+    77.77% { transform: translateX( min(0px, calc(100vw - 100% - 3 * var(--scrollgrad-width))) ); }
+    88.88% { transform: translateX( min(0px, calc(100vw - 100% - 3 * var(--scrollgrad-width))) ); }
     100%  { transform: translateX(0%); }
 }
 
@@ -63,7 +63,7 @@ labelboxbox {
     margin: 0;
     padding: 0;
     height: var(--player-height);
-    width: calc(100vw - var(--player-height) - 1 * var(--scrollgrad-width) - 0px);
+    width: calc(100vw - var(--player-height) - 3px);
     float: right;
     box-sizing: content-box;
 }

@@ -29,13 +29,16 @@
     <cosmeticbox>
         <h4>Synopsis</h4>
         <ul>
-        <li>localhost/twitchmusic/?p=your_playlist.json</li>
-        <li>localhost/twitchmusic/?p=your_playlist.json&amp;c=123</li>
+        <li>localhost/hmusic/?p=my_playlist.json</li>
+        <li>localhost/hmusic/?p=my_playlist.json&amp;c=123</li>
+        <li>localhost/hmusic/?p=my_playlist.json&amp;r=1</li>
+        <li>localhost/hmusic/?p=my_playlist.json&amp;c=123&amp;r=1</li>
         </ul>
         <p><strong>p</strong> specifies the playlist to play from.</p>
         <p><strong>c</strong> is an optional argument to specify which song on the playlist, indexed from 1, should be played.</p>
+        <p><strong>r</strong> is an optional argument to go through the playlist randomly. Two most recently played track will not be selected as the next random track.</p>
         <hr />
-        <h4>Playlist</h4>
+        <h4 id="plistheader">Playlist</h4>
         <div id="plist"></div>
     </cosmeticbox>
     </docbox>
